@@ -30,6 +30,12 @@
 #include "absl/strings/string_view.h"
 #include "zetasql/base/status.h"
 
+#if defined(__APPLE__)
+#define exp10f(x)        __exp10f((float)(x))
+#define exp10(x)         __exp10((double)(x))
+#define exp10l(x)        (long double)__exp10((long double)(x))
+#endif
+
 namespace zetasql {
 namespace functions {
 
